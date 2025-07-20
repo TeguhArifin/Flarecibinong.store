@@ -1,0 +1,279 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #a770ef, #cf8bf3, #fdb99b);
+    --primary-color-start: #a770ef;
+    --primary-color-end: #fdb99b;
+    --background-color: #12121c; 
+    --card-bg-color: rgba(255, 255, 255, 0.05); 
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --light-gray: #a0a0b0;
+    --whatsapp-color: #25D366;
+    --font-family: 'Poppins', sans-serif;
+    --shadow-glow: 0 0 25px rgba(167, 112, 239, 0.5);
+    --border-radius: 16px;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    background-image: radial-gradient(circle at 10% 10%, rgba(167, 112, 239, 0.1), transparent 30%),
+                      radial-gradient(circle at 90% 80%, rgba(207, 139, 243, 0.1), transparent 35%);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+header {
+    background: rgba(18, 18, 28, 0.7); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    color: white;
+    padding: 1.5rem 5%;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content h1 {
+    font-weight: 700;
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+    color: var(--primary-color-start);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background: var(--primary-gradient);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 2px solid var(--background-color);
+}
+
+main {
+    padding: 3rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.product {
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    text-align: center;
+    padding: 25px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    display: flex;
+    flex-direction: column;
+
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.product:nth-child(1) { animation-delay: 0.1s; }
+.product:nth-child(2) { animation-delay: 0.2s; }
+.product:nth-child(3) { animation-delay: 0.3s; }
+.product:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.product:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--primary-color-start);
+    box-shadow: var(--shadow-glow);
+}
+
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.product h3 {
+    margin: 10px 0;
+    font-size: 1.25rem;
+    flex-grow: 1; 
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.product .price {
+    color: var(--heading-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.product .desc {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: transparent;
+    color: var(--primary-color-start); 
+    border: 2px solid var(--primary-color-start);
+    padding: 12px 24px; 
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: auto;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--primary-color-start); 
+    color: white; 
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(167, 112, 239, 0.4);
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+    background-color: #1e1e2c; 
+    border: 1px solid var(--border-color);
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    animation: slideIn 0.4s ease-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    color: var(--heading-color);
+}
+
+.close-button {
+    color: var(--light-gray);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: white;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.modal-footer {
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.modal-footer h3 {
+    margin-bottom: 15px;
+    color: var(--heading-color);
+}
+
+.btn-whatsapp {
+    background: var(--whatsapp-color);
+    color: #001f0a;
+    font-weight: 700;
+}
+.btn-whatsapp:hover {
+    background: #20c25a;
+    color: #000;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    margin-top: 3rem;
+    background-color: transparent;
+    color: var(--light-gray);
+    border-top: 1px solid var(--border-color);
+}

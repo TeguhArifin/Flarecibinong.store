@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Petasan Modern</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Petasan - Flare</h1>
+            <div id="cart-icon" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2>Pilih Produk</h2>
+        <div id="product-grid" class="container"></div>
+    </main>
+
+    <footer>
+        <p>Copyright &copy; 2025 &reg;</p>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Keranjang Belanja 🛒</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div id="cart-items" class="modal-body">
+                <p>Keranjangmu masih kosong.</p>
+            </div>
+            <div class="modal-footer">
+                <h3>Total: <span id="cart-total">Rp 0</span></h3>
+                <a id="whatsapp-checkout" class="btn btn-whatsapp" href="#" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
